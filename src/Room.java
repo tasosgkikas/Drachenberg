@@ -7,18 +7,18 @@ class Room {
     /**
      * Key-value pairs that map each {@link Direction} constant to the appropriate {@link Room} instance.
      * */
-    EnumMap<Direction, Room> room = new EnumMap<>(Direction.class);
+    private final EnumMap<Direction, Room> room = new EnumMap<>(Direction.class);
 
     /**
      * Represents the existence of a door at each {@link Direction} of {@code this} {@link Room} instance.
      * The indices of the array correspond to the ordinal numbers of the {@link Direction} constants.
      * */
-    boolean[] door = new boolean[4];
+    private final boolean[] door = new boolean[4];
 
     /**
      * {@code true} if {@code this} {@link Room} is the exit of the labyrinth, else {@code false}.
      * */
-    public final boolean isExit;
+    final boolean isExit;
 
     /**
      * The only constructor of {@link Room}.
@@ -40,7 +40,7 @@ class Room {
     /**
      * Returns the {@link Room} instance at the given {@link Direction direction}
      * */
-    public Room getRoomAt(Direction direction) { return room.get(direction); }
+    Room getRoomAt(Direction direction) { return room.get(direction); }
 
     /**
      * Updates the {@link #room} field with all 4 appropriate connections between {@code this}
@@ -104,7 +104,7 @@ class Room {
      *            of a door at each {@code Direction} of each {@link Room}.
      * @return the starting {@link Room}.
      * */
-    public static Room[][] loadMap(int[][][] map) {
+    static Room[][] loadMap(int[][][] map) {
 //    public static Room loadMap(int[][][] map) {
         int nRows = map.length, nCols = map[0].length;
         Room[][] roomMap = new Room[nRows][nCols];

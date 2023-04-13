@@ -33,13 +33,13 @@ enum Direction {
      * Returns the {@code Direction} constant that results after
      * rotating counter-clockwise from {@code this Direction} constant.
      * */
-    public Direction left() { return rotate(i -> i + 1); }
+    Direction left() { return rotate(i -> i + 1); }
 
     /**
      * Returns the {@code Direction} constant that results after
      * rotating clockwise from {@code this Direction} constant.
      * */
-    public Direction right() { return rotate(i -> i - 1); }
+    Direction right() { return rotate(i -> i - 1); }
 
     @Override
     public String toString() { return super.toString().toLowerCase(); }
