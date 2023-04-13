@@ -15,9 +15,9 @@ enum Direction {
 
     /**
      * Returns the {@code Direction} constant that results after applying the
-     * {@code offset} function to {@code this Direction} constant.
+     * {@code offset} function to the .ordinal() of {@code this Direction} constant.
      *
-     * @param offset the function to be applied
+     * @param offset a function that takes an int as a parameter and returns another int.
      * @return the {@code Direction} constant after applying the {@code offset} function
      * */
     private Direction rotate(IntUnaryOperator offset) {
@@ -47,6 +47,9 @@ enum Direction {
     /**
      * Prints all the {@code Direction} constants ordered by their ordinal
      * numbers, after applying the {@code func} function to each one of them.
+     *
+     * @param func a function that takes a {@code Direction} constant as a parameter
+     *             and returns another {@code Direction} constant.
      * */
     private static void applyToAll(UnaryOperator<Direction> func) {
         for (Direction direction: Direction.values())
