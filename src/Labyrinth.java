@@ -2,6 +2,9 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+/**
+ * Represents an instance of a labyrinth built upon a given int[][][] map.
+ * */
 public class Labyrinth {
     /**
      * All the {@link Room} instances of the map are kept in this 2-dimensional array instance
@@ -72,14 +75,25 @@ public class Labyrinth {
     }
 
     /**
+     * Relocates the character to the entrance {@code Room}.
+     * */
+    private void restart() {
+        this.room = this.map[0][0];
+        this.direction = Direction.EAST;
+    }
+
+    /**
      * Prints the acceptable commands.
      * */
     private void commandsList() {
         printStream.println(
             """
+            
+            CONTROLS
             L/l : rotate counter-clockwise
             R/r : rotate clockwise
             F/f : move forward
+            B/b : go back to the beginning
             Q/q : rage quit
             H/h : show commands
             """
@@ -91,7 +105,7 @@ public class Labyrinth {
      * */
     private String commandPrompt() {
         printStream.print(
-            "You are facing " + direction + ".\n" + "You can see a " +
+            "You are facing " + direction + ".\nYou can see a " +
             (room.getRoomAt(direction) != null ? "door to another room" : "wall") + ".\n" +
             ">> "
         );
@@ -103,14 +117,19 @@ public class Labyrinth {
      * success message when the character reaches the/an exit {@link Room}.
      * */
     public void enter() {
-        printStream.println(
+        // entrance message
+        printStream.print(
             """
-                You wake up realising you are trapped in the deepest levels of the Drachenberg Labyrinth...
-                Will you find the exit and escape, or will you be forever lost within these dark caves?!
+            ***
+            
+            You wake up realising you are trapped in the deepest levels of the Drachenberg Labyrinth...
+            Will you find the exit and escape, or will you be forever lost within these dark caves?!
             """
         );
 
         commandsList();
+
+        // game start
         String command;
         while (!(command = commandPrompt()).equalsIgnoreCase("Q")) {
             switch (command.toUpperCase()) {
@@ -118,6 +137,7 @@ public class Labyrinth {
                 case "L" -> left();
                 case "R" -> right();
                 case "F" -> forward();
+                case "B" -> restart();
                 default -> printStream.println("Command '" + command + "' not recognized");
             }
 

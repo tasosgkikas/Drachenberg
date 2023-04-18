@@ -34,6 +34,7 @@ class Room {
         for (int i = 0; i < door.length; i++)
             this.door[i] = door[i] != 0;
 
+        // check if this room is the exit of the labyrinth using the map indices
         this.isExit = (row == map.length - 1) && (col == map[row].length - 1);
     }
 
@@ -98,11 +99,14 @@ class Room {
     /**
      * Constructs the {@link Room} instances of the given {@code map}, makes the appropriate
      * connections between the {@link Room} instances according to the given {@code map}, and
-     * returns the {@link Room} that the character begins from.
+     * returns the map with all the {@link Room} instances.
      *
-     * @param map the map that encodes as 1 or 0 the existence or not respectively
-     *            of a door at each {@code Direction} of each {@link Room}.
-     * @return the starting {@link Room}.
+     * @param map a 3-dimensional integer array. The element map[i][j] corresponds to the {@link Room}
+     *            instance at (i,j) position of the grid and contains an array of 4 integers. The k-th
+     *            integer is either 1 or 0 if there is or isn't respectively a door at the {@link Direction}
+     *            constant with ordinal number k.
+     *
+     * @return the 2-dimensional array-map with all the {@link Room} instances.
      * */
     static Room[][] loadMap(int[][][] map) {
 //    public static Room loadMap(int[][][] map) {
@@ -120,7 +124,6 @@ class Room {
                 roomMap[row][col].connectAdjacentRooms(row, col, roomMap);
 
         return roomMap;
-//        return roomMap[0][0];
     }
 
     /**
