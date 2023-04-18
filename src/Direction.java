@@ -7,15 +7,25 @@ import java.util.function.UnaryOperator;
  * */
 enum Direction {
     /**
-     * The 4 constants of {@code Direction}. Their ordinal numbers
-     * increase with respect to the counter-clockwise rotation on a
-     * compass, starting from NORTH with ordinal number 0.
+     * Ordinal number: 0
      * */
-    NORTH, WEST, SOUTH, EAST;
+    NORTH,
+    /**
+     * Ordinal number: 1
+     * */
+    WEST,
+    /**
+     * Ordinal number: 2
+     * */
+    SOUTH,
+    /**
+     * Ordinal number: 3
+     * */
+    EAST;
 
     /**
-     * Returns the {@code Direction} constant that results after applying the
-     * {@code offset} function to the .ordinal() of {@code this Direction} constant.
+     * Returns the {@code Direction} constant with the ordinal number that results after applying the
+     * {@code offset} function to the ordinal number of {@code this Direction} constant.
      *
      * @param offset a function that takes an int as a parameter and returns another int.
      * @return the {@code Direction} constant after applying the {@code offset} function
