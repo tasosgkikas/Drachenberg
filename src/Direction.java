@@ -1,6 +1,8 @@
 import java.util.function.IntUnaryOperator;
 import java.util.function.UnaryOperator;
 
+// Used JavaDoc comment formatting
+
 /**
  * {@code enum Direction} constants represent the 4 cardinal directions:
  * north, west, south and east.

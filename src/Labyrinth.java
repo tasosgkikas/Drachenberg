@@ -2,6 +2,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+// Used JavaDoc comment formatting
+
 /**
  * Represents an instance of a labyrinth built upon a given int[][][] map.
  * */

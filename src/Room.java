@@ -1,5 +1,7 @@
 import java.util.EnumMap;
 
+// Used JavaDoc comment formatting
+
 /**
  * Represents an individual room of the map. Also contains a static method to load all the rooms of the map
  * */
