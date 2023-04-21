@@ -110,7 +110,6 @@ class Room {
      * @return the 2-dimensional array-map with all the {@link Room} instances.
      * */
     static Room[][] loadMap(int[][][] map) {
-//    public static Room loadMap(int[][][] map) {
         int nRows = map.length, nCols = map[0].length;
         Room[][] roomMap = new Room[nRows][nCols];
 
@@ -131,12 +130,6 @@ class Room {
      * Method for testing, loads a sample map and prints all the rooms and the adjacent rooms of a certain room.
      * */
     public static void main(String[] args) {
-        /*
-         * Encodes the labyrinth in the following way:
-         * the 4-values array at {@code map[i][j]} represents the existence of a door
-         * at each {@code Direction} of the {@link Room} at the {@code [i][j]} position of the labyrinth.
-         * The indices of this array correspond to the ordinal numbers of the {@code Direction} constants.
-         * */
         int[][][] map = {
             { {0, 0, 1, 0}, {0, 0, 1, 1}, {0, 1, 1, 1}, {0, 1, 0, 1}, {0, 1, 1, 0} },
             { {1, 0, 1, 1}, {1, 1, 1, 0}, {1, 0, 0, 0}, {0, 0, 1, 0}, {1, 0, 0, 0} },
