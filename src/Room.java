@@ -21,7 +21,8 @@ class Room {
     final boolean isExit;
 
     /**
-     * The only constructor of {@link Room}.
+     * Constructs a {@link Room} instance at the ({@code row},{@code col}) position of the given {@code map},
+     * setting the right values of the {@link #door} and {@link #isExit} fields.
      *
      * @param row the number of the row of the given {@code map} that contains {@code this} {@link Room}.
      * @param col the number of the column of the given {@code map} that contains {@code this} {@link Room}.
