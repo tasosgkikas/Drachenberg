@@ -11,7 +11,7 @@ public class Labyrinth {
      * field, in case the whole map is needed to be accessed in the future, for example a
      * mini-map in the HUD.
      * */
-    final Room[][] map;
+    private final Room[][] map;
 
     /**
      * The {@link Room} the character is currently located in.
